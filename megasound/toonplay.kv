@@ -1,0 +1,41 @@
+<HomeScreen>:
+    MDNavigationLayout:
+        ScreenManager:
+            id: screen_m
+            MDScreen:
+                md_bg_color: app.primary
+                MDBoxLayout:
+                    id: bg
+                    MDBoxLayout:
+                        id: cbg
+                        orientation: 'vertical'
+                        padding: 0, '10dp', 0, 0
+                        md_bg_color: app.background
+                        TopBarMenu:
+                            nav: nav
+                        MDBoxLayout:
+                            orientation: 'vertical'
+                            spacing: '5dp'
+                            PlayListCard:
+                            PlayListCard:
+                            PlayListCard:
+        NavDrawer:
+            id: nav
+            bg: bg
+            cbg: cbg
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: '10dp', '30dp',
+                spacing: '5dp'
+                SearchField:
+                NavListItem:
+                    icon: 'music'
+                    text: 'Music'
+                NavListItem:
+                    icon: 'playlist-music'
+                    text: 'Playlists'
+                NavListItem:
+                    icon: 'cog'
+                    text: 'Settings'
+                MDBoxLayout:
+                
