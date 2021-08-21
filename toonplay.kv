@@ -1,0 +1,56 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+<HomeScreen>:
+    MDNavigationLayout:
+        ScreenManager:
+            id: screen_m
+            MDScreen:
+                md_bg_color: app.primary
+                MDBoxLayout:
+                    id: bg
+                    MDBoxLayout:
+                        id: cbg
+                        orientation: 'vertical'
+                        padding: 0, 0, 0, 0
+                        md_bg_color: app.background
+                        ScreenManager:
+                            id: scrn_manager
+                            transition: NoTransition()
+                            MusicScreen:
+                                name: 'music'
+                                nav: nav
+                            PlaylistsScreen:
+                                name: 'playlist'
+                                nav: nav
+                            # MusicPlayerScreen:
+
+        NavDrawer:
+            id: nav
+            bg: bg
+            cbg: cbg
+            scrn_manager: scrn_manager
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: '10dp', '30dp',
+                spacing: '5dp'
+                SearchField:
+                NavListItem:
+                    icon: 'music'
+                    text: 'Music'
+                    on_release: 
+                        nav.resize_screen()
+                        scrn_manager.current = 'music'
+                NavListItem:
+                    icon: 'playlist-music'
+                    text: 'Playlists'
+                    on_release: 
+                        nav.resize_screen() 
+                        scrn_manager.current = 'playlist'
+                NavListItem:
+                    icon: 'cog'
+                    text: 'Settings'
+                    on_release: 
+                        nav.resize_screen() 
+                        scrn_manager.current = 'settings'
+                MDBoxLayout:
+                
